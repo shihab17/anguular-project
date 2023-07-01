@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">User Registration</h4>
+      </div>
+      <div class="card-content">
+        <div class="card-body">
+          <div *ngIf="!isCutomerRestration">
+            <form class="needs-validation" #registrationForm="ngForm">
+              <div *ngIf="isPhoneNumberShow">
+                <div class="form-row">
+                  <div class="col-md-4 mb-4 form-group">
+                    <label for="validationTooltip01">Phone Number</label>
+                    <input type="text" name="phoneNumber" class="form-control" id="validationTooltip01" placeholder="Phone Number" [(ngModel)]="model.phoneNumber" #phoneNumber="ngModel"
+                    [ngClass]="{ 'is-invalid': registrationForm.submitted && phoneNumber.invalid, 'is-valid': registrationForm.submitted &&  !phoneNumber.invalid }" required>
+                  </div>
+                </div>
+                <button class="btn btn-primary" (click)="onPhoneNumberSubmit(registrationForm)" type="submit">Submit</button>
+              </div>
+              <div *ngIf="isOtpShow">
+                <div class="form-row">
+                  <div class="col-md-4 mb-4 form-group">
+                    <label for="validationTooltip01">OTP</label>
+                    <input type="number" name="otp" class="form-control" id="validationTooltip01" placeholder="OTP" [(ngModel)]="model.otp" #otp="ngModel"
+                    [ngClass]="{ 'is-invalid': registrationForm.submitted && otp.invalid, 'is-valid': registrationForm.submitted &&  !otp.invalid }" required>
+                  </div>
+                </div>
+                <button class="btn btn-primary" (click)="onOTPSubmit(registrationForm)" type="submit">Submit</button>
+              </div>
+            </form>
+          </div>
+          <div *ngIf="isCutomerRestration"><app-customer-registration></app-customer-registration></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
