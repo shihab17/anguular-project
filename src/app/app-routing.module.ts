@@ -8,7 +8,6 @@ import { Full_ROUTES } from "./shared/routes/full-layout.routes";
 import { CONTENT_ROUTES } from "./shared/routes/content-layout.routes";
 
 import { AuthGuard } from './shared/auth/auth-guard.service';
-import { USER_ROUTES } from './shared/routes/user.routes';
 
 const appRoutes: Routes = [
   {
@@ -18,7 +17,6 @@ const appRoutes: Routes = [
   },
   { path: '', component: FullLayoutComponent, data: { title: 'full Views' }, children: Full_ROUTES, canActivate: [AuthGuard] },
   { path: '', component: ContentLayoutComponent, data: { title: 'content Views' }, children: CONTENT_ROUTES },
-  { path: 'user', component: ContentLayoutComponent, data: { title: 'user' }, children: USER_ROUTES },
   {
     path: '**',
     redirectTo: 'pages/error'
