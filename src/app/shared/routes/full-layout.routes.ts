@@ -13,4 +13,9 @@ export const Full_ROUTES: Routes = [
     loadChildren: () =>
       import("../../user/user-routing.module").then((m) => m.UserRoutingModule),
   },
+  {
+    path: "customer",
+    loadChildren: () =>
+      import("../../customer/customer-routing.module").then((m) => m.CustomerRoutingModule),
+  },
 ];

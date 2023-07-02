@@ -17,6 +17,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
   onPhoneNumberSubmit(form){
+    console.log(form);
     if (form.valid) {
       console.log(this.model);
       this.registerService.sendOTP(this.model).subscribe((res) => {

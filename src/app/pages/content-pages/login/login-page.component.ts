@@ -60,5 +60,8 @@ export class LoginPageComponent {
       }
       );
   }
+  onRegister(){
+    this.router.navigate(['/pages/register']);
+  }
 
 }
