@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Register } from 'app/models/register';
 import { RegisterService } from 'app/services/register.service';
 
@@ -12,7 +12,7 @@ export class RegisterComponent implements OnInit {
   isPhoneNumberShow = true;
   isOtpShow = false;
   isCutomerRestration = false;
-  constructor(private registerService: RegisterService) { }
+  constructor(private registerService: RegisterService, private changeDetectorRef: ChangeDetectorRef) { }
 
   ngOnInit(): void {
   }
@@ -21,13 +21,16 @@ export class RegisterComponent implements OnInit {
     if (form.valid) {
       console.log(this.model);
       this.registerService.sendOTP(this.model).subscribe((res) => {
+        console.log(res);
         this.isPhoneNumberShow = false;
         this.isOtpShow = true;
+        this.changeDetectorRef.detectChanges();
       },
       (error) => {
         console.error('Error submitting data:', error);
         this.isPhoneNumberShow = false;
         this.isOtpShow = true;
+        this.changeDetectorRef.detectChanges();
       })
     }
   }
