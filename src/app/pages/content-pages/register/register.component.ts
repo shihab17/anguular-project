@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
   onPhoneNumberSubmit(form){
     console.log(form);
     if (form.valid) {
-      console.log(this.model);
+      console.log(this.model) ;
       this.registerService.sendOTP(this.model).subscribe((res) => {
         console.log(res);
         this.isPhoneNumberShow = false;
